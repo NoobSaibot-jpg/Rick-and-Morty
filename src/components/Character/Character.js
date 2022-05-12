@@ -27,10 +27,8 @@ export default function Character() {
     useEffect(() => {
       axios.get(`https://rickandmortyapi.com/api/character?page=${page}`)
         .then(res=>setChar(res.data.results))
-      return () => {
         
         setLoading(false)
-      }
     }, [page])
     
 
