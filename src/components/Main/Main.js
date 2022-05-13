@@ -1,5 +1,7 @@
-import { Routes, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, NavLink, BrowserRouter as Router } from 'react-router-dom';
 import Character from '../Character/Character';
+import Episodes from '../Episodes/Episodes';
+import Location from '../Location/Location';
 
 export default function Main() {
   return (
@@ -13,12 +15,14 @@ export default function Main() {
         width:'100%',
         position:'fixed'}
         }>
-        <Link to="/">Characters</Link>
-        <Link to="/epis">Episodes</Link>
-        <Link to="/locat">Loacations</Link>
+        <NavLink to="/">Characters</NavLink>
+        <NavLink to="/epis">Episodes</NavLink>
+        <NavLink to="/locat">Loacations</NavLink>
       </header>
       <Routes>
         <Route path="/" element={<Character/>} />
+        <Route path="/epis" element={<Episodes/>} />
+        <Route path="/locat" element={<Location/>} />
       </Routes>
     </Router>
   );

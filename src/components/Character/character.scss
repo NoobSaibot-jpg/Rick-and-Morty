@@ -6,14 +6,20 @@
     box-sizing: border-box;
     font-family: 'Bebas Neue';
 }
+header{
+    background-color: rgba(0, 0, 0, 0.4);
+}
 
 .character{
-    padding-top: 1rem;
+    padding-top: 11vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     background-position: top;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 426px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 376px) {
         grid-template-columns: 1fr;
     }
 }
@@ -23,4 +29,27 @@
     justify-content: space-evenly;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+.episodes{
+    padding-top: 11vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    background-position: top;
+    @media screen and (max-width: 426px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 376px) {
+        grid-template-columns: 1fr;
+    }
+    .btns{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+.active{
+    color: brown;
 }
