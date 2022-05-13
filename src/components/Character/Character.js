@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import CardChar from './CardChar/CardChar'
-import { Container, Button } from '@mui/material'
+import { Container, Button, LinearProgress } from '@mui/material'
 import './character.scss'
 
 export default function Character() {
@@ -33,7 +33,7 @@ export default function Character() {
     
 
     if(loading){
-        return <div>Loading...</div>
+        return <LinearProgress color="success" style={{marginTop:'20%'}}/>
     }
     return (
       <Container>
@@ -49,11 +49,13 @@ export default function Character() {
         </div>
         <div className="btns">
           <Button variant='outlined' onClick={minusPage}>
-            Perv Page
+            Prev Page {page-1}
           </Button>
-          <Button variant='outlined' onClick={plusPage}>Next Page</Button>
+          <span>{page}</span>
+          <Button variant='outlined' onClick={plusPage}>
+            Next Page {page+1}
+            </Button>
         </div>
-
       </Container>
         
       )
