@@ -1,8 +1,10 @@
 import Card from '@mui/material/Card';
 import { CardMedia, Typography, CardContent, CardActions, Button,} from '@mui/material';
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function CardChar(props) {
+  
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -21,7 +23,7 @@ export default function CardChar(props) {
         </Typography>
       </CardContent>
     <CardActions>
-      <Button size="small" onClick={props.click}>Learn More</Button>
+      <Link to={`/char/${props.charId}`}><Button size="small" onClick={props.click}>Learn More</Button></Link>
     </CardActions>
   </Card>
   )

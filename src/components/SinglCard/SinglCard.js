@@ -3,14 +3,32 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './card.scss'
+import { useParams } from 'react-router-dom'
+import Episodes from './Episodes'
 
-export default function SinglCard(props) {
-    const [person, setPerson] = useState({})
+export default function SinglCard() {
+    const [person, setPerson] = useState({
+        species: '',
+        image: '',
+        name: '',
+        status: '',
+        gender: '',
+        origin: ''
+    })
+    const {charId} = useParams()
 
     useEffect(() => {
-      axios.get(`https://rickandmortyapi.com/api/character/${props.id}`)
-      .then(res=>setPerson(res.data))
-    }, [props.id])
+      axios.get(`https://rickandmortyapi.com/api/character/${charId}`)
+      .then(res=>setPerson({
+          species: res.data.species,
+          image: res.data.image,
+          name: res.data.name,
+          status: res.data.status,
+          gender: res.data.gender,
+          origin: res.data.origin.name,
+          series: res.data.episode
+      }))
+    }, [charId])
     
 
   return (
@@ -21,13 +39,15 @@ export default function SinglCard(props) {
                 <h1 className="single-card_text_tittle">
                     {person.name}
                 </h1>
-                <p className='single-card_text_descr'>
+                <div className='single-card_text_descr'>
                     <ul>
-                        <li>type: {person.type}</li>
+                        <li>type: {person.species}</li>
                         <li>status: {person.status}</li>
                         <li>gender: {person.gender}</li>
+                        <li>Location: {person.origin}</li>
                     </ul>
-                </p>
+                    <Episodes epis={person.series}/>
+                </div>
             </div>
         </div>
     </Container>

@@ -3,7 +3,7 @@ import Character from '../Character/Character';
 import Episodes from '../Episodes/Episodes';
 import Location from '../Location/Location';
 import Error404 from '../Error/Error404';
-// import SinglCard from '../SinglCard/SinglCard';
+import SinglCard from '../SinglCard/SinglCard';
 
 export default function Main() {
 
@@ -24,7 +24,7 @@ export default function Main() {
         </header>
         <Routes>
           <Route path="/" element={<Character/>} />
-          {/* <Route path={`/${context}`} element={<SinglCard id={context}/>} /> */}
+          <Route path={"/char/:charId"} element={<SinglCard/>} />
           <Route path="/epis" element={<Episodes/>} />
           <Route path="/locat" element={<Location/>} />
           <Route path='*' element={<Error404/>}/>

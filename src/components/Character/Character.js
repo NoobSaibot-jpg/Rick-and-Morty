@@ -45,7 +45,7 @@ export default function Character() {
                     img={i.image}
                     descr={i.status}
                     id = {i.id}
-                    click={()=>{alert(`Character ${i.name} will be ready soon`)}}
+                    charId={i.id}
                     />
                 )
             })}

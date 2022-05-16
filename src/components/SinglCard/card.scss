@@ -1,17 +1,37 @@
 .single-card{
-
+    padding: 11vh 0;
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 100%;
     height: 50%;
     justify-content: space-around;
     &_img{
         width: 50%;
         height: 50%;
         img{
+            display: block;
             width: 100%;
             height: 100%;
         }
     }
+    &_text{
+        text-align: center;
+    }
+    ul{
+        display: block;
+        list-style: none;
+    }
+    @media screen and (max-width: 426px) {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        &_img{
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            align-content: center;
+            margin: 0 auto;
+    }}
    
 }
