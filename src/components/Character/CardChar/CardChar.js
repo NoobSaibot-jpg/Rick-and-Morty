@@ -1,7 +1,6 @@
 import Card from '@mui/material/Card';
-import { CardMedia, Typography, CardContent, CardActions, Button } from '@mui/material';
+import { CardMedia, Typography, CardContent, CardActions, Button,} from '@mui/material';
 import React from 'react'
-
 
 export default function CardChar(props) {
 
@@ -22,8 +21,7 @@ export default function CardChar(props) {
         </Typography>
       </CardContent>
     <CardActions>
-      <Button size="small">Share</Button>
-      <Button size="small">Learn More</Button>
+      <Button size="small" onClick={props.click}>Learn More</Button>
     </CardActions>
   </Card>
   )

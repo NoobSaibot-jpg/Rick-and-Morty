@@ -32,7 +32,7 @@ export default function Location() {
             {episodes.map((i)=>{
                 return <CardChar key={i.id}
                 name={i.name}
-                descr={i.air_date}
+                descr={i.type}
                 img ={img}
                 />
             })}

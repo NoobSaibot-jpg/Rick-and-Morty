@@ -37,13 +37,16 @@ export default function Character() {
     }
     return (
       <Container>
-        <div className='character'  >
+        <div className='character' >
             {char.map((i)=>{
                 return(
                     <CardChar key={i.id}
                     name={i.name}
                     img={i.image}
-                    descr={i.status}/>
+                    descr={i.status}
+                    id = {i.id}
+                    click={()=>{alert(`Character ${i.name} will be ready soon`)}}
+                    />
                 )
             })}
         </div>
@@ -54,7 +57,7 @@ export default function Character() {
           <span>{page}</span>
           <Button variant='outlined' onClick={plusPage}>
             Next Page {page+1}
-            </Button>
+          </Button>
         </div>
       </Container>
         
