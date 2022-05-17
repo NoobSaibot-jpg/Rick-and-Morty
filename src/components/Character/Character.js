@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import CardChar from './CardChar/CardChar'
 import { Container, Button, LinearProgress } from '@mui/material'
 import './character.scss'
+import Loading from '../Loading'
 
 export default function Character() {
     const [char, setChar] = useState([])
@@ -36,7 +37,7 @@ export default function Character() {
     
 
     if(loading){
-        return <LinearProgress color="success" style={{marginTop:'20%'}}/>
+        return <Loading/>
     }
     return (
       <Container>

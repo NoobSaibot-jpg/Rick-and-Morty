@@ -53,3 +53,15 @@ header{
 .active{
     color: brown;
 }
+
+.loading{
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/load.gif') 100%/100% repeat;
+    text-align: center;
+    h1{
+        height: 100%;
+        padding-top: 15%;
+    }
+    
+}
