@@ -7,8 +7,8 @@ import {useState, useEffect} from 'react'
 
 export default function Location() {
     const [episodes,setEpisodes] = useState([])
-    const [page, setPage] = useState(localStorage.getItem('page'))
-    localStorage.setItem('page', page)
+    const [page, setPage] = useState(1)
+    // localStorage.setItem('page', page)
 
     const plusPage=()=>{
         if(page==7){

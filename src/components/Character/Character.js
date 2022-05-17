@@ -8,8 +8,8 @@ import './character.scss'
 export default function Character() {
     const [char, setChar] = useState([])
     const [loading, setLoading] = useState(true)
-    const [page, setPage] = useState(localStorage.getItem('page'))
-    localStorage.setItem('page', page)
+    const [page, setPage] = useState(1)
+    // localStorage.setItem('page', page)
     
     
 
@@ -27,7 +27,7 @@ export default function Character() {
       return setPage(()=>+page-1)
     }
     useEffect(() => {
-      setPage(localStorage.getItem('page'))
+      // setPage(localStorage.getItem('page'))
       axios.get(`https://rickandmortyapi.com/api/character?page=${page}`)
         .then(res=>setChar(res.data.results))
         
