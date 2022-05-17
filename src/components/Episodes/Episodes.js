@@ -34,6 +34,7 @@ export default function Episodes() {
                 name={i.name}
                 descr={i.air_date}
                 img ={img}
+                url = {`/epis/${i.id}`}
                 />
             })}
         </div>

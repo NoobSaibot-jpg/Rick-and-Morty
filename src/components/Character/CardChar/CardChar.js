@@ -23,7 +23,7 @@ export default function CardChar(props) {
         </Typography>
       </CardContent>
     <CardActions>
-      <Link to={`/char/${props.charId}`}><Button size="small" onClick={props.click}>Learn More</Button></Link>
+      <Link to={props.url}><Button size="small" onClick={props.click}>Learn More</Button></Link>
     </CardActions>
   </Card>
   )

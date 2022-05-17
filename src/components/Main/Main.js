@@ -24,9 +24,11 @@ export default function Main() {
         </header>
         <Routes>
           <Route path="/" element={<Character/>} />
-          <Route path={"/char/:charId"} element={<SinglCard/>} />
+          <Route path={"/char/:charId"} element={<SinglCard obj='character'/>} />
           <Route path="/epis" element={<Episodes/>} />
+          <Route path={"/epis/:episId"} element={<SinglCard obj='episode'/>} />
           <Route path="/locat" element={<Location/>} />
+          <Route path={"/locat/:locatId"} element={<SinglCard obj='location'/>} />
           <Route path='*' element={<Error404/>}/>
         </Routes>
       </Router>
