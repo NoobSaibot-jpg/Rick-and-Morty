@@ -1,20 +1,24 @@
 import axios from 'axios'
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { Avatar } from '@mui/material'
 
 export default function Episodes(props) {
     
     const [loadig, setLoadig] = useState(true)
-    const [name, setName] = useState([])
+    const [obj, setObj] = useState({
+        name: '',
+        avatar:''
+    })
 
     useEffect(() => {
-      if(props.epis){
-          props.epis.map((i)=>{
-              axios.get(i).then(res=>setName(name.concat(res.data.name)))
-          })
-          setLoadig(false)
-      }
-    }, [props.epis])
+      axios.get(props.epis)
+      .then(res=>setObj({
+          name: res.data.name,
+          avatar: res.data.image  
+      }))
+      setLoadig(false)
+    }, [])
     
     
 
@@ -22,19 +26,6 @@ export default function Episodes(props) {
         return <div>loadig...</div>
     }
     return (
-        <div className="episodes">
-            <div>
-                <h2>
-                    {props.type} 
-                </h2>
-            </div>
-            <div>
-                <ul>
-                    {Array.from(name).map((i, index)=>{
-                        return <li key={index}>{i}</li>
-                    })}
-                </ul>
-            </div>
-        </div>
+        obj.avatar?<li style={{alignItems:'center', display:'flex', justifyContent:'flex-start', gap:'1em'}}> <Avatar alt={obj.name} src={obj.avatar} /> {obj.name}</li>:<li> {obj.name}</li>
     )
 }

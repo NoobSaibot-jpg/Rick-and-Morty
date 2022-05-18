@@ -44,7 +44,13 @@ export default function SinglCardEpis() {
                         <li>Date: {episode.air_date}</li>
                         <li>Episode: {episode.episode}</li>
                     </ul>
-                    <Episodes type='Characters' epis={episode.characters}/>
+                    <br />
+                    <h2>Characters:</h2>
+                    <ul>
+                        {episode.characters.map((i, index)=>{
+                            return <Episodes epis={i} key={index}/>
+                        })}
+                    </ul>
                 </div>
             </div>
         </div>

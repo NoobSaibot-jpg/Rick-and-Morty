@@ -47,7 +47,13 @@ export default function SinglCardLockal() {
                         <li>Dimension: {location.dimension}</li>
                         <li>Created: {location.created}</li>
                     </ul>
-                    <Episodes type='Residents' epis={location.residents}/>
+                    <br />
+                    <h2>Residents:</h2>
+                    <ul>
+                        {location.residents.map((i,index)=>{
+                            return <Episodes key={index} epis={i}/>
+                        })}
+                    </ul>
                 </div>
             </div>
         </div>

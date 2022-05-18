@@ -13,12 +13,13 @@ export default function SinglCardСhar(props) {
         name: '',
         status: '',
         gender: '',
-        origin: ''
+        origin: '',
+        series: []
     })
-    const {charId, locatId, episId} = useParams()
+    const {charId} = useParams()
 
     useEffect(() => {
-      axios.get(`https://rickandmortyapi.com/api/character/${charId || locatId || episId}`)
+      axios.get(`https://rickandmortyapi.com/api/character/${charId}`)
       .then(res=>setPerson({
           name: res.data.name,
           species: res.data.species,
@@ -28,7 +29,7 @@ export default function SinglCardСhar(props) {
           origin: res.data.origin.name,
           series: res.data.episode
       }))
-    }, [charId, locatId, episId, props.obj])
+    }, [charId])
     
 
   return (
@@ -44,13 +45,19 @@ export default function SinglCardСhar(props) {
                     {person.name}
                 </h1>
                 <div className='single-card_text_descr'>
-                    <ul>
+                    <ul style={{fontSize:'16px', fontWeight:'bold'}}>
                         <li>type: {person.species}</li>
                         <li>status: {person.status}</li>
                         <li>gender: {person.gender}</li>
                         <li>Location: {person.origin}</li>
                     </ul>
-                    <Episodes type='Episodes' epis={person.series}/>
+                    <br />
+                    <h2>Episodes:</h2>
+                    <ul>
+                        {person.series.map((i, index)=>{
+                            return <Episodes epis={i} key={index}/>
+                        })}
+                    </ul>
                 </div>
             </div>
         </div>

@@ -18,8 +18,10 @@
         text-align: center;
     }
     ul{
-        display: block;
+        display: flex;
+        flex-direction: column;
         list-style: none;
+        gap: 1em;
     }
     @media screen and (max-width: 426px) {
         width: 100%;
