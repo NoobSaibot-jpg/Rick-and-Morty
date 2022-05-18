@@ -3,7 +3,9 @@ import Character from '../Character/Character';
 import Episodes from '../Episodes/Episodes';
 import Location from '../Location/Location';
 import Error404 from '../Error/Error404';
-import SinglCard from '../SinglCard/SinglCard';
+import SinglCardChar from '../SinglCard/SinglCardChar';
+import SinglCardLockal from '../SinglCard/SinglCardLockal';
+import SinglCardEpis from '../SinglCard/SinglCardEpis';
 
 export default function Main() {
 
@@ -24,11 +26,11 @@ export default function Main() {
         </header>
         <Routes>
           <Route path="/" element={<Character/>} />
-          <Route path={"/char/:charId"} element={<SinglCard obj='character'/>} />
+          <Route path={"/char/:charId"} element={<SinglCardChar/>} />
           <Route path="/epis" element={<Episodes/>} />
-          <Route path={"/epis/:episId"} element={<SinglCard obj='episode'/>} />
+          <Route path={"/epis/:episId"} element={<SinglCardEpis/>}/>
           <Route path="/locat" element={<Location/>} />
-          <Route path={"/locat/:locatId"} element={<SinglCard obj='location'/>} />
+          <Route path={"/locat/:locatId"} element={<SinglCardLockal/>}/>
           <Route path='*' element={<Error404/>}/>
         </Routes>
       </Router>

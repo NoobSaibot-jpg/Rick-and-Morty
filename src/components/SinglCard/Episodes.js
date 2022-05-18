@@ -1,12 +1,17 @@
+import axios from 'axios'
 import React from 'react'
 import { useEffect, useState } from 'react'
 
 export default function Episodes(props) {
     
     const [loadig, setLoadig] = useState(true)
+    const [name, setName] = useState([])
 
     useEffect(() => {
       if(props.epis){
+          props.epis.map((i)=>{
+              axios.get(i).then(res=>setName(name.concat(res.data.name)))
+          })
           setLoadig(false)
       }
     }, [props.epis])
@@ -20,12 +25,12 @@ export default function Episodes(props) {
         <div className="episodes">
             <div>
                 <h2>
-                    Episodes: 
+                    {props.type} 
                 </h2>
             </div>
             <div>
                 <ul>
-                    {props.epis.map((i, index)=>{
+                    {Array.from(name).map((i, index)=>{
                         return <li key={index}>{i}</li>
                     })}
                 </ul>

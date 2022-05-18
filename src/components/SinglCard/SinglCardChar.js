@@ -6,7 +6,7 @@ import './card.scss'
 import { useParams } from 'react-router-dom'
 import Episodes from './Episodes'
 
-export default function SinglCard(props) {
+export default function SinglCardСhar(props) {
     const [person, setPerson] = useState({
         species: '',
         image: '',
@@ -18,7 +18,7 @@ export default function SinglCard(props) {
     const {charId, locatId, episId} = useParams()
 
     useEffect(() => {
-      axios.get(`https://rickandmortyapi.com/api/${props.obj}/${charId || locatId || episId}`)
+      axios.get(`https://rickandmortyapi.com/api/character/${charId || locatId || episId}`)
       .then(res=>setPerson({
           name: res.data.name,
           species: res.data.species,
@@ -50,7 +50,7 @@ export default function SinglCard(props) {
                         <li>gender: {person.gender}</li>
                         <li>Location: {person.origin}</li>
                     </ul>
-                    <Episodes epis={person.series}/>
+                    <Episodes type='Episodes' epis={person.series}/>
                 </div>
             </div>
         </div>

@@ -3,11 +3,13 @@ import axios from 'axios'
 import { Button, Container } from '@mui/material';
 import img from '../img/lock.jpg'
 import CardChar from '../Character/CardChar/CardChar';
+import Loading from '../Loading';
 import {useState, useEffect} from 'react'
 
 export default function Location() {
     const [episodes,setEpisodes] = useState([])
     const [page, setPage] = useState(1)
+    const [loading, setLoading] = useState(true)
     // localStorage.setItem('page', page)
 
     const plusPage=()=>{
@@ -26,8 +28,15 @@ export default function Location() {
     useEffect(() => {
       axios.get(`https://rickandmortyapi.com/api/location?page=${page}`)
       .then(res=>setEpisodes(res.data.results))
+
+      setLoading(false)
     }, [page])
-    
+
+
+
+  if(loading){
+    return <Loading/>
+  }
   return (
       <Container>
           <div className='episodes'>
