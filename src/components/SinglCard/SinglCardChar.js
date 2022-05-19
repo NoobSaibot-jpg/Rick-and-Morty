@@ -55,7 +55,7 @@ export default function SinglCardСhar(props) {
                     <h2>Episodes:</h2>
                     <ul>
                         {person.series.map((i, index)=>{
-                            return <Episodes epis={i} key={index}/>
+                            return <Episodes epis={i} key={index} path='epis'/>
                         })}
                     </ul>
                 </div>

@@ -14,9 +14,9 @@ export default function Main() {
         <header style={
           {display:'flex', 
           flexDirection:'row',
-          padding: '2rem', 
           justifyContent:'space-around', 
-          height:'10vh', 
+          height:'70px', 
+          textAlign:'center',
           width:'100%',
           position:'fixed'}
           }>

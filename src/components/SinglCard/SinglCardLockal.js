@@ -51,7 +51,7 @@ export default function SinglCardLockal() {
                     <h2>Residents:</h2>
                     <ul>
                         {location.residents.map((i,index)=>{
-                            return <Episodes key={index} epis={i}/>
+                            return <Episodes key={index} epis={i} path='char'/>
                         })}
                     </ul>
                 </div>

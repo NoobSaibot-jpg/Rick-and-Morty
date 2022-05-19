@@ -48,7 +48,7 @@ export default function SinglCardEpis() {
                     <h2>Characters:</h2>
                     <ul>
                         {episode.characters.map((i, index)=>{
-                            return <Episodes epis={i} key={index}/>
+                            return <Episodes epis={i} key={index} path='char'/>
                         })}
                     </ul>
                 </div>

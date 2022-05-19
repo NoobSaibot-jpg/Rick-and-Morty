@@ -6,12 +6,29 @@
     box-sizing: border-box;
     font-family: 'Bebas Neue';
 }
+a{
+    text-decoration: none;
+    transition: all 0.5s;
+    position: relative;
+    cursor: pointer;
+    &:hover{
+        color: red;
+    }
+}
 header{
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgb(0, 0, 0);
+    z-index: 1000;
+    a{
+        color: aliceblue;
+        font-size: 20px;
+        vertical-align: middle;
+        padding-top: 1em;
+    }
+    
 }
 
 .character{
-    padding-top: 11vh;
+    padding-top: 80px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
